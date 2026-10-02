@@ -1,0 +1,242 @@
+\documentclass[a4paper,10pt]{scrartcl}
+
+\usepackage{stackrel, amsmath,amsthm,amsfonts,amssymb, stmaryrd}
+%\usepackage{amsthm}
+%\usepackage{mathrsfs}
+%\usepackage{amsfont}
+\usepackage{dsfont}\let\mathbb\mathds
+\usepackage{yhmath}
+\usepackage{listings}
+\lstset{breaklines=true}
+\usepackage{xr}
+
+
+%PGF/TikZ
+\usepackage{pgf,pgfplots, tikz}
+\usetikzlibrary{arrows}
+
+\usepackage[french]{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}
+
+\usepackage{float}
+\usepackage[utf8]{inputenc} 
+\usepackage[T1]{fontenc} 
+\usepackage[french]{babel}
+\usepackage[all]{xy}
+\usepackage{graphicx} 
+\usepackage{geometry}
+\geometry{hmargin=2.5cm,vmargin=2cm}
+
+\usepackage{fancyvrb}
+
+\usepackage{setspace}
+\onehalfspacing 
+
+\usepackage{mathtools}
+
+\usepackage[ruled,linesnumbered]{algorithm2e}
+
+\usepackage[
+n, % or lambda advantage , operators , sets,
+adversary , landau , probability , notions ,
+logic ,
+ff, mm,
+primitives , events , complexity , asymptotics , keys
+]{cryptocode}
+
+\usepackage[capitalize,nameinlink,french]{cleveref}
+
+% For footnotes in tabular
+\usepackage{footnote}
+\makesavenoteenv{tabular}
+\makesavenoteenv{table}
+
+% For reference enumeration between brackets
+\usepackage{enumitem}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{plain}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{theorem}[definition]{Theorem}
+
+\theoremstyle{definition}
+\newtheorem{remark}[definition]{Remark}
+\newtheorem{example}[definition]{Example}
+\newtheorem{assumption}[definition]{Assumption}
+\newtheorem{problem}[definition]{Problem}
+
+ %macros
+\newcommand{\ie}{\emph{i.e.}\ }
+\newcommand{\eg}{\emph{e.g.}\ }
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\def\C{\mathbb{C}}
+\newcommand{\K}{\mathbb{K}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Hc}{\mathbb{H}}
+\newcommand{\Lc}{\mathbb{L}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\Pc}{\mathbb{P}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\B}{\mathbb{B}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\V}{\mathbb{V}}
+\newcommand{\m}[1]{\mathcal{#1}}
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mB}{\mathcal{B}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\mP}{\mathcal{P}}
+\newcommand{\mK}{\mathcal{K}}
+\newcommand{\mL}{\mathcal{L}}
+\newcommand{\mE}{\mathcal{E}}
+\newcommand{\mD}{\mathcal{D}}
+\newcommand{\mF}{\mathcal{F}}
+\newcommand{\mO}{\mathcal{O}}
+\DeclareMathOperator{\im}{im}
+%\renewcommand{\ker}{\mbox{ker}}
+%\renewcommand{\dim}{\mbox{dim}}
+%\renewcommand{\deg}{\mbox{deg}}
+\renewcommand{\i}[2]{\left\llbracket #1~;~#2\right\rrbracket}
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+\renewcommand{\P}{\mathbb{P}}
+%commandes de Quentin
+%\newcommand{\F}[1]{\mathbb{F}_{#1}}
+\newcommand{\Fp}[1]{\mathbb{F}_{p^{#1}}}
+\newcommand{\db}[1]{\mathbb{#1}}
+\newcommand{\id}{\mbox{id}}
+\newcommand{\mf}[1]{\mathfrak{#1}}
+\newcommand{\mfm}{\mathfrak{m}}
+\newcommand{\mfn}{\mathfrak{n}}
+\newcommand{\mfp}{\mathfrak{p}}
+\newcommand{\mfq}{\mathfrak{q}}
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\Proj}{Proj}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\Aut}{Aut}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\disc}{disc}
+\DeclareMathOperator{\Cl}{Cl}
+\let\SS\relax
+\DeclareMathOperator{\SS}{SS}
+\DeclareMathOperator{\Ell}{Ell}
+%\DeclareMathOperator{\mod}{mod}
+\DeclareMathOperator{\Gal}{Gal}
+\DeclareMathOperator{\nrd}{nrd}
+\DeclareMathOperator{\Vol}{Vol}
+\DeclareMathOperator{\Covol}{Covol}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\ProjEval}{ProjEval}
+\DeclareMathOperator{\Char}{char}%\char already taken
+\DeclareMathOperator{\DL}{DL}
+\DeclareMathOperator{\argmax}{argmax}
+
+\DeclareMathOperator{\Sign}{Sign}
+\DeclareMathOperator{\Verif}{Verif}
+
+\newcommand{\leftmapsto}{\leftarrow\!\shortmid}
+\newcommand{\longleftmapsto}{\longleftarrow\!\shortmid}
+\renewcommand{\vec}[1]{\mathbf{#1}}
+
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+
+\begin{document}
+
+\title{\smaller{Projet de convention de recherche entre la DGA-MI et l'IRMAR pour l'accueil de Pierrick Dartois}}
+
+\author{Pierrick Dartois}
+
+\date{Octobre 2026}
+
+\subtitle{Algorithmique efficace et sécurisée pour le calcul d'isogénies entre variétés abéliennes et courbes elliptiques en cryptographie}
+
+\maketitle
+
+% Equations de normes: Pegasis
+% RM-SQIsign
+% Isogenies de degré impair
+% Scholten 4D
+% Implémentation efficace d'isogénies sur carte
+% Theta: theta null point à partir des équations de Riemann
+% Theta: Jacobiennes de dim2 
+% Theta: AGM
+% Theta: calcul du facteur projectif dans la formule de duplication
+
+La cryptographie post-quantique à base d'isogénies a largement progressé au cours des dernières années, avec des gains considérables en termes d'efficacité, tout en bénéficiant d'une excellente compacité (faibles tailles de clés, de signatures...). Bien qu'elle oblige à revoir les paramètres des primitives cryptographiques, l'attaque récente de Benjamin Wesolowski sur le problème du calcul d'endomorphismes supersinguliers~\cite{Bweso_attack} permet de mieux comprendre la difficulté de ce problème fondamental (qui reste de complexité exponentielle). Cette attaque ne remet donc pas en cause les perspectives de déploiement industriel et de standardisation de primitives post-quantiques à base d'isogénies pour certains cas d'usage~\cite{SQIsign_in_TLS}. Pour anticiper un tel déploiement, de nouvelles approches algorithmiques pourront en améliorer les performances. Ce programme de recherche propose de travailler sur ces algorithmes au sens large, allant de l'implémentation pratique (\Cref{SecAlgImpl}) aux approches et questions plus fondamentales (\Cref{SecCalcIsog,SecTheta}) s'appuyant sur la géométrie algébrique et la théorie des nombres, sujets qui intéressent l'équipe de Géométrie et Algèbre Effectives (GAE) de l'IRMAR. 
+
+\section{Amélioration algorithmique pour l'implémentation efficace de primitives à base d'isogénies}\label{SecAlgImpl}
+
+Cette section du programme concerne des primitives cryptographiques déjà proposées (ou proches) et se concentre prioritairement sur les questions d'implémentation. Certains des problèmes proposés seront traités avec mon étudiant Quentin Rataud, que je co-supervise avec Aurore Guillevic\footnote{Chargée de recherches au Centre Inria de l'Université de Rennes dans l'équipe CAPSULE.} dans le cadre d'une thèse portant sur \emph{l'amélioration algorithmique et l'implémentation sécurisée de schémas cryptographiques à base d'isogénies}. 
+
+\subsection{Implémentation rapide de schémas cryptographiques sur les systèmes embarqués}
+
+Pour permettre leur miniaturisation et leur faible consommation énergétique, les systèmes embarqués sont généralement contraints en termes de puissance de calcul et de mémoire. Jusqu'à présent les algorithmes cryptographiques à base d'isogénies ont été conçus pour des processeurs plus puissants. Leur adaptation aux systèmes embarqués a fait l'objet de peu d'attention dans la littérature, bien que des recherches sur le sujet existent \cite{SQIsign_embedded,Fast_FFM4_SQIsign}. Ce projet se concentrera notamment sur deux problèmes :
+\begin{itemize}
+\item Les compromis temps-mémoire dans les stratégies de calcul de chaines d'isogénies;
+\item Dans le cas de l'implémentation de la signature post-quantique à base d'isogénies SQIsign, l'adaptation de l'arithmétique multi-précision sur les grands entiers aux systèmes embarqués.
+\end{itemize}  
+Ce sujet ne concerne bien sûr pas que les isogénies, mais également d'autres familles post-quantiques d'intérêt, avec des synergies possibles\footnote{Par exemple, les réseaux euclidiens utilisent également de l'arithmétique sur des grands entiers.}. 
+
+\subsection{Résolution d'équations de normes pour les actions de groupes cryptographiques (qt-Pegasis)}
+
+L'action de groupes de classes d'idéaux sur les courbes supersingulières orientées permet de construire de multiples primitives cryptographiques post-quantiques en «~mimant~» les bonnes propriétés du logarithme discret. Ces actions de groupes permettent notamment de construire des protocoles cryptographiques avancés, notamment des protocoles à seuil pour le calcul multipartite sécurisé. L'algorithme (qt)-Pegasis~\cite{PEGASIS,qt_Pegasis} a été proposé pour calculer l'action d'un idéal sur une courbe orientée sans restriction sur cet idéal donné en entrée, ce qui était impossible avec les techniques antérieures. La première étape de qt-Pegasis consiste à résoudre une équation diophqntienne quadratique qui dépend de l'idéal donné en entrée. Cependant, il n'existe pas de preuve que cet algorithme termine ni de sa complexité dans tous les cas. C'est pourquoi l'étude précise de cet algorithme, de ces cas d'échecs et de leur distribution fait partie de ce programme de recherche. On pourra s'inspirer d'une étude similaire qui a été conduite pour l'algorithme Qlapoti \cite{Qlapoti,Qlapoty} qui intervient dans la signature post-quantique SQIsign et dont qt-Pegasis est inspiré.
+
+\subsection{RM-SQIsign : une signature électronique à base d'isogénies entre surfaces abéliennes à multiplication réelle}
+
+Dans le cadre d'un projet avec d'autres co-auteurs, Péter Kutas et Damien Robert travaillent sur une variante de SQIsign, RM-SQIsign, utilisant les surfaces abéliennes \emph{à multiplication réelle}, c'est-à-dire dont l'anneau des endomorphismes contient un ordre quadratique réel. Contrairement à SQIsign qui utilise des isogénies en dimension deux, RM-SQIsign utiliserait des isogénies en dimension quatre. Le surcoût lié à une croissance de la dimension pourrait être compensé par l'usage de paramètres plus petits, qu'il conviendra d'estimer soigneusement compte-tenu des suites de l'attaque de Benjamin Wesolowski. Grâce à mon expérience antérieure sur le calcul d'isogénies en dimension quatre, ma contribution consisterait principalement à implémenter les algorithmes associés à RM-SQIsign et mon étudiant Quentin Rataud pourrait y être associé.
+
+
+\section{Nouveaux algorithmes pour le calcul rapide d'isogénies}\label{SecCalcIsog}
+
+Les progrès récents en cryptographie à base d'isogénies proviennent en grande partie des avancées dans le calcul efficace d'isogénies qui a fait l'objet de ma thèse \cite{PADphd}. Cette section du programme vise à poursuivre les recherches dans cette direction. 
+
+\subsection{Généralisation de la construction de Scholten pour le calcul d'isogénies}
+
+Proche de la restriction de Weil, la construction de Scholten définit un foncteur des courbes elliptiques définies sur $\mathbb{F}_{q^2}$ vers les Jacobiennes de courbes elliptiques de genre deux définies sur $\mathbb{F}_q$. Par fonctorialité, une isogénie entre courbes elliptiques définies sur $\mathbb{F}_{q^2}$ est correspond à une isogénie en dimension $2$ définie sur $\mathbb{F}_q$. D'un point de vue calculatoire, on s'attend à ce qu'une perte d'efficacité due au passage de la dimension $1$ à $2$ soit compensée par une arithmétique sur un corps de base plus petit ($\F_q$ au lieu de $\F_{q^2}$). Dans le cadre d'un travail qui vient de commencer avec Krijn Reijnders et d'autres coauteurs, nous proposons de généraliser cette construction à l'extension $\mathbb{F}_{q^4}/\F_q$ au prix d'un passage de la dimension un à la dimension quatre. Nous espérons abaisser le surcoût du passage à la dimension quatre par des améliorations algorithmiques liées aux symétries particulières de la construction de Scholten que nous avions observé dans l'échange de clés MIKE (Module Isogeny Key Exchange) \cite{MIKE}. 
+
+\subsection{Calcul d'isogénies en dimension huit pour la triple action de modules de rang deux sur une courbe elliptique}
+
+L'échange de clés MIKE repose sur la théorie de l'action des modules sur les variétés abéliennes. Lorsqu'un module $M$ de rang $r$ agit sur une variété abélienne $A$ de dimension $g$, le résultat $M\cdot A$ est une variété abélienne de rang $rg$. Cet opération fait intervenir un calcul d'isogénie $A^r\to M\cdot A$ de dimension $r$. Dans le cas particulier de l'échange de clés MIKE, faisant intervenir des modules de rang deux agissant deux fois successives sur une courbe elliptique, il convient de calculer une isogénie en dimension quatre pour retrouver la clé partagée. Des primitives cryptographiques plus avancées (de types \emph{oblivious transfer}) pourraient être construites à partir de trois actions successives d'un module de rang deux, nécessitant ainsi le calcul d'une isogénie en dimension huit lors de la dernière étape. Le coût de cette opération est possiblement très important, ce qui motive davantage de recherches pour le réduire. Par ailleurs, l'identification unique de la variété abélienne de dimension huit qui résulte du calcul nécessite d'en trouver des invariants modulaires. Ces deux questions ont pu être résolues de façon élégante en dimension quatre dans le cas de MIKE, grâce aux symétries particulières de ces variétés qui sont \emph{de type Weil}. Il s'agirait ici de voir dans quelle mesure ceci est généralisable en dimension huit.
+
+%\subsection{Calcul efficace d'isogénies de degré impair en dimension supérieure}
+
+
+\section{Questions algorithmiques et fondamentales en théorie des fonctions Thêta de Mumford}\label{SecTheta}
+
+Les améliorations algorithmiques du calcul d'isogénies en dimension supérieure au cours des dernières années doivent beaucoup à la théorie des fonctions thêta de Mumford. Cette section propose d'étudier en collaboration avec David Lubicz des questions algorithmiques plus fondamentales dans cette théorie, dont les applications sont moins immédiates que les précédentes, mais possiblement plus profondes, comme l'a montré l'histoire des mathématiques jusqu'à récemment.
+
+\subsection{Génération de thêta null point à partir des équations de Riemann}
+
+Pour un niveau $n$ et une dimension $g$ fixée, les équations de Riemann en niveau $n$ définissent un sous-espace projectif fermé, qui n'est autre que l'adhérence de l'espace de module des variétés abéliennes de dimension $g$ \emph{marquées}, c'est-à-dire munies d'une thêta structure de niveau $n$. Autrement dit, le thêta null point, c'est-à-dire l'évaluation des coordonnées thêta en en $0$ vérifie les équations de Riemann. Cependant, toute solution des équations de Riemann n'est pas nécessairement un thêta null point valide (déterminant une variété abélienne marquée), mais se trouve \emph{à proximité} de thêta null points valides. La question qui nous intéresse consiste à déterminer des conditions nécessaires et suffisantes pour qu'une solution des équations de Riemann soit un thêta null point. D'un point de vue algorithmique, cela permettrait d'échantillonner au hasard des thêta null point (avec possiblement des applications cryptographiques). En cas de succès, nous nous intéresserons également à la distribution des thêta null points ainsi échantillonnés.
+
+\subsection{Choix de signes pour le calcul de $2$-isogénies rationnelles par la méthode arithmético-géométrique}
+
+La méthode arithmético-géométrique (AGM) a été utilisée pour calculer des suites de $2$-isogénies entre courbes elliptiques grâce aux travaux de Jean-François Mestre. Régis Dupont a ensuite généralisé cette méthode en dimension $2$ pendant sa thèse \cite{Dupont_thesis}. Dans la méthode AGM, un thêta null point est obtenu du précédent avec des calculs de racines carrées qui imposent des choix de signes. Régis Dupont a travaillé principalement avec le formalisme analytique des fonctions thêta sur $\C$, qui permettait de déterminer ces choix de signes avec la topologie de $\C$. Nous proposons de réinterpréter ces choix de signes dans le cadre de la théorie algébrique des fonctions thêta de Mumford pour travailler facilement sur d'autres corps (notamment les corps finis qui aparaissent en cryptographie). Nous pourrions nous appuyer sur la théorie des fonctions thêta $2$-adiques, qui permettrait de combiner le mieux les points de vue analytiques et algébriques. Les nouvelles techniques ainsi développées permettraient de calculer des relèvements canoniques de variétés abéliennes, ce qui est utile pour le comptage de points, mais également pour d'autres applications algorithmiques.    
+
+\subsection{Détermination de coordonnées rationnelles en dimension deux}
+
+Dans \cite[Chapitre~2]{Prolegomena}, Cassels et Flynn introduisent 16 coordonnées projectives pour définir une Jacobienne d'une courbe de genre $2$. Ce système de coordonnées ressemble très fortement aux coordonnées thêta de niveau $4$ mais les premières sont rationnelles (définies sur le corps de base de la Jacobienne), contrairement à ces dernières. On peut naturellement se demander si ce système de coordonnées pourrait être obtenu à l'aide des coordonnées thêta, par exemple en faisant agir un groupe de Galois dessus. Cette découverte aurait des applications effectives pour accélérer l'arithmétique sur les surfaces abéliennes et le calcul d'isogénies,  en combinant les bonnes propriétés arithmétiques des coordonnées thêta (donnant des formules efficaces) et l'avantage calculatoire de travailler sur un corps plus petit.
+
+\subsection{Calcul de la forme modulaire associée au facteur scalaire dans la formule de duplication}
+
+La formule de duplication permet de relier les coordonnées thêta de niveau $n$ et de niveau $(n,n)$ à un facteur projectif près. Dans le cadre analytique (sur $\C$), ce facteur projectif peut être calculé explicitement et définit une forme modulaire en la matrice de période de la variété abélienne sous-jacente. Nous proposons de chercher des algorithmes efficaces pour calculer cette forme modulaire explicitement.  
+
+\newpage
+
+\bibliography{Bib}
+\bibliographystyle{unsrt} 
+
+\end{document}
